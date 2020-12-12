@@ -12,6 +12,12 @@ body{
     color: var(--text-color) !important;
 }
 
+#buttons {
+    padding-top: 2vh !important;
+    padding-bottom: 1vh !important;
+    margin-left: 30vw;
+}
+
 #inputField {
     background-color: #ffffff;
     padding: 10px !important;
