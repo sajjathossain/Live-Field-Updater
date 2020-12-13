@@ -18,41 +18,69 @@ var stylings = [
         clicked: false
     }
 ];
+function changeToBold(output) {
+    if (stylings[0].clicked === false) {
+        bold.style.opacity = "75%";
+        outputField.innerHTML = "<b>" + output + "</b>";
+        stylings[0].clicked = !stylings[0].clicked;
+        stylings[1].clicked = false;
+        italic.style.opacity = "100%";
+        stylings[2].clicked = false;
+        underlined.style.opacity = "100%";
+    }
+    else {
+        bold.style.opacity = "100%";
+        outputField.innerHTML = output;
+        stylings[0].clicked = !stylings[0].clicked;
+    }
+}
+function changeToItalic(output) {
+    if (stylings[1].clicked === false) {
+        italic.style.opacity = "75%";
+        outputField.innerHTML = "<i>" + output + "</i>";
+        stylings[1].clicked = !stylings[1].clicked;
+        stylings[0].clicked = false;
+        bold.style.opacity = "100%";
+        stylings[2].clicked = false;
+        underlined.style.opacity = "100%";
+    }
+    else {
+        italic.style.opacity = "100%";
+        outputField.innerHTML = output;
+        stylings[1].clicked = !stylings[1].clicked;
+    }
+}
+function changeToUnderlined(output) {
+    if (stylings[2].clicked === false) {
+        underlined.style.opacity = "75%";
+        outputField.innerHTML = "<u>" + output + "</u>";
+        stylings[2].clicked = !stylings[2].clicked;
+        stylings[1].clicked = false;
+        bold.style.opacity = "100%";
+        stylings[0].clicked = false;
+        italic.style.opacity = "100%";
+    }
+    else {
+        underlined.style.opacity = "100%";
+        outputField.innerHTML = output;
+        stylings[2].clicked = !stylings[2].clicked;
+    }
+}
 function updateOutput() {
     var output = "";
     output += inputField.value;
     outputField.innerHTML = output;
     bold.addEventListener("click", function () {
-        if (stylings[0].clicked === false) {
-            outputField.innerHTML = "<b>" + output + "</b>";
-            stylings[0].clicked = !stylings[0].clicked;
-        }
-        else {
-            outputField.innerHTML = output;
-            stylings[0].clicked = !stylings[0].clicked;
-        }
+        changeToBold(output);
     });
     italic.addEventListener("click", function () {
-        if (stylings[1].clicked === false) {
-            outputField.innerHTML = "<i>" + output + "</i>";
-            stylings[1].clicked = !stylings[1].clicked;
-        }
-        else {
-            outputField.innerHTML = output;
-            stylings[1].clicked = !stylings[1].clicked;
-        }
+        changeToItalic(output);
     });
     underlined.addEventListener("click", function () {
-        if (stylings[2].clicked === false) {
-            outputField.innerHTML = "<u>" + output + "</u>";
-            stylings[2].clicked = !stylings[2].clicked;
-        }
-        else {
-            outputField.innerHTML = output;
-            stylings[2].clicked = !stylings[2].clicked;
-        }
+        changeToUnderlined(output);
     });
 }
 document.addEventListener("DOMContentLoaded", function () {
-    updateOutput();
+    inputField.addEventListener("input", updateOutput);
+    // updateOutput();
 });
