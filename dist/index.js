@@ -20,7 +20,6 @@ var stylings = [
     }
 ];
 function changeToBold(output) {
-    outputField.innerHTML = "";
     if (stylings[0].clicked === false) {
         bold.style.opacity = "75%";
         outputField.innerHTML = "<b>" + output + "</b>";
@@ -37,7 +36,6 @@ function changeToBold(output) {
     }
 }
 function changeToItalic(output) {
-    outputField.innerHTML = "";
     if (stylings[1].clicked === false) {
         italic.style.opacity = "75%";
         outputField.innerHTML = "<i>" + output + "</i>";
@@ -54,7 +52,6 @@ function changeToItalic(output) {
     }
 }
 function changeToUnderlined(output) {
-    outputField.innerHTML = "";
     if (stylings[2].clicked === false) {
         underlined.style.opacity = "75%";
         outputField.innerHTML = "<u>" + output + "</u>";
