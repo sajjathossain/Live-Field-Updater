@@ -50,6 +50,7 @@ function changeToBold(output: string) {
 
 function changeToItalic(output: string) {
 
+    outputField.innerHTML = ""
     
     if (stylings[1].clicked === false) {
 
@@ -74,6 +75,7 @@ function changeToItalic(output: string) {
 
 function changeToUnderlined(output: string) {
 
+    outputField.innerHTML = "";
 
     if (stylings[2].clicked === false) {
 
