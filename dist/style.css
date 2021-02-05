@@ -15,14 +15,17 @@ body{
 #buttons {
     padding-top: 2vh !important;
     padding-bottom: 1vh !important;
-    margin-left: 30vw;
+    /* margin-left: 20vw; */
+    display: flex !important;
+    justify-content: center !important;
+    gap: 5px !important;
 }
 
 #inputField {
     background-color: #ffffff;
     padding: 10px !important;
     height: 50vh !important;
-    width: 35vw !important;
+    width: 30vw !important;
     border: none;
     outline: none;
     margin: none !important;
@@ -31,20 +34,23 @@ body{
 }
 
 #inputField:active, #inputField:focus {
-    outline: 2px solid #b9c4f5;
+    outline: 1px solid #b9c4f5;
 }
 
 #outputField {
+    margin: 10px !important;
     padding: 10px !important;
     pointer-events: none;
     cursor: pointer;
     background-color: rgb(255, 255, 255) !important;
     height: 50vh !important;
-    width: 35vw !important;
+    width: 30vw !important;
     font-size: 18px;
 }
 
-
+#inputField, #outputField {
+    border-radius: 3px !important;
+}
 
 
 

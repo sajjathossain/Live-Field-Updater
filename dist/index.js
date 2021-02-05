@@ -4,6 +4,7 @@ var outputField = document.getElementById("outputField");
 var bold = document.getElementById("bold");
 var italic = document.getElementById("italic");
 var underlined = document.getElementById("underlined");
+var pastOutput;
 var stylings = [
     {
         for: "bold",
@@ -19,6 +20,7 @@ var stylings = [
     }
 ];
 function changeToBold(output) {
+    outputField.innerHTML = "";
     if (stylings[0].clicked === false) {
         bold.style.opacity = "75%";
         outputField.innerHTML = "<b>" + output + "</b>";
@@ -30,11 +32,12 @@ function changeToBold(output) {
     }
     else {
         bold.style.opacity = "100%";
-        outputField.innerHTML = output;
+        outputField.innerHTML = pastOutput;
         stylings[0].clicked = !stylings[0].clicked;
     }
 }
 function changeToItalic(output) {
+    outputField.innerHTML = "";
     if (stylings[1].clicked === false) {
         italic.style.opacity = "75%";
         outputField.innerHTML = "<i>" + output + "</i>";
@@ -46,11 +49,12 @@ function changeToItalic(output) {
     }
     else {
         italic.style.opacity = "100%";
-        outputField.innerHTML = output;
+        outputField.innerHTML = pastOutput;
         stylings[1].clicked = !stylings[1].clicked;
     }
 }
 function changeToUnderlined(output) {
+    outputField.innerHTML = "";
     if (stylings[2].clicked === false) {
         underlined.style.opacity = "75%";
         outputField.innerHTML = "<u>" + output + "</u>";
@@ -62,13 +66,14 @@ function changeToUnderlined(output) {
     }
     else {
         underlined.style.opacity = "100%";
-        outputField.innerHTML = output;
+        outputField.innerHTML = pastOutput;
         stylings[2].clicked = !stylings[2].clicked;
     }
 }
 function updateOutput() {
     var output = "";
     output += inputField.value;
+    pastOutput = output;
     outputField.innerHTML = output;
     bold.addEventListener("click", function () {
         changeToBold(output);
@@ -80,7 +85,7 @@ function updateOutput() {
         changeToUnderlined(output);
     });
 }
+var sn = "";
 document.addEventListener("DOMContentLoaded", function () {
     inputField.addEventListener("input", updateOutput);
-    // updateOutput();
 });

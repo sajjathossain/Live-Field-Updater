@@ -1,9 +1,9 @@
 const inputField = document.getElementById("inputField")! as HTMLInputElement;
-const outputField = document.getElementById("outputField")! as HTMLOutputElement;
-const bold = document.getElementById("bold")! as HTMLButtonElement;
-const italic = document.getElementById("italic")! as HTMLButtonElement;
-const underlined = document.getElementById("underlined")! as HTMLButtonElement;
-
+const outputField = document.getElementById("outputField")!;
+const bold = document.getElementById("bold")!;
+const italic = document.getElementById("italic")!;
+const underlined = document.getElementById("underlined")!;
+let pastOutput: string;
 interface styling{
     for: string
     clicked: boolean;
@@ -27,6 +27,8 @@ let stylings: Array<styling> = [
 
 function changeToBold(output: string) {
 
+    outputField.innerHTML = ""
+
     if (stylings[0].clicked === false) {
 
         bold.style.opacity = "75%"
@@ -40,7 +42,7 @@ function changeToBold(output: string) {
     } else {
         
         bold.style.opacity = "100%"
-        outputField.innerHTML = output;
+        outputField.innerHTML = pastOutput;
         stylings[0].clicked = !stylings[0].clicked;
         
     }
@@ -48,6 +50,8 @@ function changeToBold(output: string) {
 }
 
 function changeToItalic(output: string) {
+
+    outputField.innerHTML = ""
     
     if (stylings[1].clicked === false) {
 
@@ -62,7 +66,7 @@ function changeToItalic(output: string) {
     } else {
         
         italic.style.opacity = "100%"
-        outputField.innerHTML = output;
+        outputField.innerHTML = pastOutput;
         stylings[1].clicked = !stylings[1].clicked;
 
     }
@@ -71,6 +75,8 @@ function changeToItalic(output: string) {
 
 
 function changeToUnderlined(output: string) {
+
+    outputField.innerHTML = "";
 
     if (stylings[2].clicked === false) {
 
@@ -85,7 +91,7 @@ function changeToUnderlined(output: string) {
     } else {
 
         underlined.style.opacity = "100%"
-        outputField.innerHTML = output;
+        outputField.innerHTML = pastOutput;
         stylings[2].clicked = !stylings[2].clicked;
     }
 
@@ -95,6 +101,7 @@ function updateOutput() {
 
     let output: string = "";
     output += inputField.value;
+    pastOutput = output;
     outputField.innerHTML = output;
 
     bold.addEventListener("click", () => {
@@ -117,9 +124,8 @@ function updateOutput() {
 
 }
 
- 
+let sn:string = "" 
 
 document.addEventListener("DOMContentLoaded", () => {
     inputField.addEventListener("input", updateOutput);
-    // updateOutput();
 });
