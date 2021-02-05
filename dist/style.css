@@ -46,6 +46,7 @@ body{
     height: 50vh !important;
     width: 30vw !important;
     font-size: 18px;
+    word-wrap: break-word;
 }
 
 #inputField, #outputField {
